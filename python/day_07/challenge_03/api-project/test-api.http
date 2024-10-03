@@ -1,0 +1,32 @@
+### 1. GET /tasks - Retrieve a list of all tasks
+GET http://localhost:8000/tasks/
+Content-Type: application/json
+
+### 2. POST /tasks - Create a new task
+POST http://localhost:8000/tasks/
+Content-Type: application/json
+
+{
+  "task": "task test1"
+}
+
+### 3. GET /tasks/{task_id} - Retrieve a single task (replace {task_id} with a valid ID)
+GET http://localhost:8000/tasks/1/
+Content-Type: application/json
+
+### 4. PUT /tasks/{task_id} - Update a task (replace {task_id} with a valid ID)
+PUT http://localhost:8000/tasks/1/
+Content-Type: application/json
+
+{
+  "task": "Updated Task"
+  
+}
+
+### 5. DELETE /tasks/{task_id} - Delete a task (replace {task_id} with a valid ID)
+DELETE http://localhost:8000/tasks/2/
+Content-Type: application/json
+
+### 6. DELETE /tasks/delete-all/ - Delete all tasks and reset the ID
+DELETE http://localhost:8000/tasks/delete-all/
+Content-Type: application/json
