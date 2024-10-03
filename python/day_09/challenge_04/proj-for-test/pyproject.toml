@@ -1,0 +1,22 @@
+[tool.poetry]
+name = "proj-test"
+version = "0.1.0"
+description = ""
+authors = ["W1NDCOR3 <diogo.romero.paz@gmail.com>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.12"
+pytest = "^8.3.3"
+
+[tool.pytest.ini_options]
+pythonpath = ["app"]
+
+
+
+[tool.poetry.group.dev.dependencies]
+pytest = "^8.3.3"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
