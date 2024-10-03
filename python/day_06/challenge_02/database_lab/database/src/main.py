@@ -1,6 +1,6 @@
-from src.models.user import User
-from src.models.company import Company
-from src.db import Database
+from models.user import User
+from models.user import Company
+from db import Database
 
 
 def main():
@@ -25,20 +25,33 @@ def main():
             User(name="Jack Doe"),
             User(name="Jill Doe"),
         ]
+        
+        companies = [
+            Company(name="Natixis"),
+            Company(name="BPCE"),
+            Company(name="Partecis")
+            
+        ]
 
         for user in users:
             db.create_user(user)
-
+            
+        for company in companies:
+            db.create_company(company)
+            
         user = db.get_user(1)
+        
+        company = db.read_company(2)
 
         print(user)
+        print(company)
 
-        if user:
-            db.update_user(user_id=user.id, name="John Smith")
+        # if user:
+        #     db.update_user(user_id=user.id, name="John Smith")
 
-            db.delete_user(user_id=user.id)
+        #     db.delete_user(user_id=user.id)
 
-        db.drop_tables()
+        # db.drop_tables()
 
 
 if __name__ == "__main__":

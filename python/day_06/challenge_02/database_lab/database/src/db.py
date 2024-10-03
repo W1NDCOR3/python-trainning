@@ -2,9 +2,10 @@ import logging
 from sqlalchemy import Column, create_engine
 from sqlalchemy.orm import sessionmaker
 
-from src.models.company import Company
+from src.models.user import Company
 from src.models.user import User
 from src.models.base import Base
+
 
 
 logger = logging.getLogger(__name__)
@@ -93,7 +94,41 @@ class Database:
             session.add(company)
             session.commit()
             logger.info(f"Company {company} created in the database")
+            
+    def read_company(self, company_id: int) -> Company | None:
+        """
+        Get a company from the database by its ID.
+        """
+        with self.Session() as session:
+            company = session.query(Company).filter(Company.id == company_id).first()
+            logger.info(f"Company {company} retrieved from the database")
+            return company
+        
+    def update_company(self, company_id: int, **kwargs):
+        """
+        Update a company in the database.
+        """
+        with self.Session() as session:
+            company = session.query(Company).filter(Company.id == company_id).first()
 
+            for key, value in kwargs.items():
+                if not hasattr(company, key):
+                    raise AttributeError(f"Company does not have attribute {key}")
+
+                setattr(company, key, value)
+            session.commit()
+            logger.info(f"Company {company} updated in the database")
+
+    def delete_company(self, company_id: int):
+        """
+        Delete a company from the database.
+        """
+        with self.Session() as session:
+            company = session.query(Company).filter(Company.id == company_id).first()
+            session.delete(company)
+            session.commit()
+            logger.info(f"Company {company} deleted from the database")
+            
     def __enter__(self):
         """
         Enter the context manager.
