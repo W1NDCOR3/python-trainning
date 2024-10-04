@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <ul>
+    {% for client in clients %}
+      <li>
+        <a href="{% url "client" client.id %}">
+            {{ client.name }}
+        </a>
+      </li>
+    {% endfor %}
+  </ul>
+{% endblock %}
