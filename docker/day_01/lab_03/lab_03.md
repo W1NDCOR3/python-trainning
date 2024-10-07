@@ -74,8 +74,8 @@ This command will run the container in interactive mode with a shell prompt.
 ```Dockerfile
 # Dockerfile
 ...
-COPY .entrypoint.sh /entrypoint.sh
-RUN chmod a+x /entrypoint.sh
+COPY entrypoint.sh /entrypoint.sh
+RUN chmod +x /entrypoint.sh
 
 ENTRYPOINT ["/entrypoint.sh"]
 ```

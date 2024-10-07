@@ -42,8 +42,6 @@ This `index.html` file contains a simple HTML document with a heading that says 
 
 8. Build the Docker image using the following command:
 
-```bash
-docker build -t simple-web-server .
 ```
 
 This command builds a Docker image with the tag `simple-web-server` using the `Dockerfile` in the current directory.
