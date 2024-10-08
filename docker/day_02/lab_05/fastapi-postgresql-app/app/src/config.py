@@ -1,6 +1,6 @@
 from decouple import config
 
-# NOTE: We could use Pydantic Settings instead of decouple, but for this example, we will use decouple.
+# NOTE: We could use Pydantic Settings instead of decouple, but for this example, we will use decou
 
 POSTGRES_USER = config("POSTGRES_USER", cast=str)
 """A string representing the user to connect to the database."""
