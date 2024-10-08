@@ -1,5 +1,5 @@
 # Use the official Python image as the base image
-FROM python:3.11-slim
+FROM diogoromero/app:latest
 
 # Install Poetry
 RUN pip install poetry
